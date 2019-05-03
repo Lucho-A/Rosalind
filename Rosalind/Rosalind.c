@@ -4,13 +4,16 @@
  Author      : L.
  Version     :
  Copyright   : 
- Description : Hello World in C, Ansi-style
+ Description : Rosalind Project
  ============================================================================
  */
 
 #include "libRosalind.h"
 
 int main(void) {
-	P0001();
+	DNA();
+	REVC();
+	RNA();
+	FIBO();
 	return EXIT_SUCCESS;
 }
