@@ -11,9 +11,10 @@
 #include "libRosalind.h"
 
 int main(void) {
-	DNA();
+	//DNA();
 	//REVC();
 	//RNA();
-	//FIBO();
+	FIBO();
+	//SUBS();
 	return EXIT_SUCCESS;
 }

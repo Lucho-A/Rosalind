@@ -8,11 +8,8 @@
 
 void FIBO(void){
     time_t tInit=clock();
-    long unsigned int fibos[LIMIT]={0};
-    fibos[1]=1;
-    fibos[2]=1;
-    for(int i=3;i<LIMIT;i++) fibos[i]=fibos[i-1]+fibos[i-2];
+    double resp=fibonacci(22);
     time_t tEnd=clock();
-    printf("Problem FIBO - Result: %lu. Elapsed Time: %.6f\n",fibos[22],(double) (tEnd-tInit)/CLOCKS_PER_SEC);
+    printf("Problem FIBO - Result: %.0f. Elapsed Time: %.6f\n",resp,(double) (tEnd-tInit)/CLOCKS_PER_SEC);
     return;
 }
