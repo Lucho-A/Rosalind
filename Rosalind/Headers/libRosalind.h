@@ -13,7 +13,6 @@
     #include <time.h>
     #include <math.h>
     #include <string.h>
-	#include "math.c"
 //defines
     #define FALSE 0
     #define TRUE 1
@@ -24,5 +23,5 @@
     typedef long unsigned int lu;
     typedef long long unsigned int llu;
 //math.c
-    double fibonacci(lu n);
+    double fibonacci(lu n, lu incr);
 #endif /* LIBROSALIND_H_ */

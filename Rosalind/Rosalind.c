@@ -14,7 +14,8 @@ int main(void) {
 	//DNA();
 	//REVC();
 	//RNA();
-	FIBO();
+	//FIBO();
 	//SUBS();
+	FIB();
 	return EXIT_SUCCESS;
 }
