@@ -12,8 +12,8 @@
 
 int main(void) {
 	DNA();
-	REVC();
-	RNA();
-	FIBO();
+	//REVC();
+	//RNA();
+	//FIBO();
 	return EXIT_SUCCESS;
 }
