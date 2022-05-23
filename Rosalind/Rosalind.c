@@ -11,11 +11,16 @@
 #include "libRosalind.h"
 
 int main(void) {
-	//DNA();
-	//REVC();
-	//RNA();
-	//FIBO();
-	//SUBS();
-	FIB();
+	/*
+	DNA();
+	REVC();
+	RNA();
+	FIBO();
+	SUBS();
+	*/
+	//TODO FIB();
+	//TODO PROT();
+	//GC();
+	printf("WTFFFFF?!?!?!?!? hhahaha \n");
 	return EXIT_SUCCESS;
 }
