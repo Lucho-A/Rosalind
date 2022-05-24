@@ -5,11 +5,12 @@
 */
 
 #include "libRosalind.h"
-#define RNA_CONDONS 64
+#define RNA_CODONS 64
 
 void PROT(void){
     time_t tInit=clock();
-    char rnaCodons[RNA_CONDONS][4]={"UUUF","CUUL","AUUI","GUUV",
+    char rnaCodons[RNA_CODONS][4]={
+    		"UUUF","CUUL","AUUI","GUUV",
     		"UUCF","CUCL","AUCI","GUCV",
     		"UUAL","CUAL","AUAI","GUAV",
     		"UUGL","CUGL","AUGM","GUGV",
@@ -30,7 +31,7 @@ void PROT(void){
 	for(int i=0;i<strlen(s);i++) result[i]='\0';
 	int contInd=0, stop=0;
 	for(int i=0;stop==0;i+=3){
-		for(int j=0;j<RNA_CONDONS;j++){
+		for(int j=0;j<RNA_CODONS;j++){
 			if(s[i]==rnaCodons[j][0] && s[i+1]==rnaCodons[j][1] && s[i+2]==rnaCodons[j][2]){
 				if(rnaCodons[j][3]=='/'){
 					result[contInd]='\0';

@@ -21,6 +21,8 @@ int main(void) {
 	CONS();
 	INI();
 	PROT();
+	PRTM();
+	IPRB();
 	*/
 	//TODO FIB();
 	return EXIT_SUCCESS;
