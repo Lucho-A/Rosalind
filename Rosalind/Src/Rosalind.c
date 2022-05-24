@@ -24,6 +24,7 @@ int main(void) {
 	PRTM();
 	IPRB();
 	PROB();
+	LCSM();
 	*/
 	//TODO FIB();
 	return EXIT_SUCCESS;
