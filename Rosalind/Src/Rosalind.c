@@ -17,10 +17,11 @@ int main(void) {
 	RNA();
 	FIBO();
 	SUBS();
+	GC();
+	CONS();
+	INI();
 	*/
 	//TODO FIB();
 	//TODO PROT();
-	//GC();
-	printf("WTFFFFF?!?!?!?!? hhahaha \n");
 	return EXIT_SUCCESS;
 }
