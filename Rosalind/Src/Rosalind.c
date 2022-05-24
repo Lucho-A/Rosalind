@@ -20,8 +20,8 @@ int main(void) {
 	GC();
 	CONS();
 	INI();
+	PROT();
 	*/
 	//TODO FIB();
-	//TODO PROT();
 	return EXIT_SUCCESS;
 }

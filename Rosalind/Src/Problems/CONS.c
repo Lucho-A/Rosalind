@@ -1,8 +1,8 @@
 /*
-	Problem CONS
+	Problem CONS: "Consensus and Profile - Finding a Most Likely Common Ancestor" (https://rosalind.info/problems/cons/)
 
 	Lucho-D
-	23 may. 2022-16:14:55
+	23 may. 2022
  */
 
 #include "libRosalind.h"
@@ -16,13 +16,13 @@
 
 void CONS(void){
 	time_t tInit=clock();
-	int contLines=0;
-	char line[MAX_DNA_STRINGS][MAX_LINE_LEN]={""};
 	FILE *fp = fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\CONS\\rosalind_cons3.txt", "r");
 	if(fp==NULL){
 		printf("File not found\n");
 		exit(EXIT_FAILURE);
 	}
+	int contLines=0;
+	char line[MAX_DNA_STRINGS][MAX_LINE_LEN]={""};
 	while(fgets(line[contLines], MAX_LINE_LEN, fp)!=NULL) contLines++;
 	fclose(fp);
 	int len=0;
