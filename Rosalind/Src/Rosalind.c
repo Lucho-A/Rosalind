@@ -26,6 +26,7 @@ int main(void) {
 	PROB();
 	LCSM();
 	FIB();
+	HAMM();
 	*/
 	return EXIT_SUCCESS;
 }
