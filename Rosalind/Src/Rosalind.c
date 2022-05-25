@@ -25,7 +25,7 @@ int main(void) {
 	IPRB();
 	PROB();
 	LCSM();
+	FIB();
 	*/
-	//TODO FIB();
 	return EXIT_SUCCESS;
 }
