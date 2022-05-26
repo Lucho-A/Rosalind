@@ -27,6 +27,7 @@ int main(void) {
 	LCSM();
 	FIB();
 	HAMM();
+	PERM();
 	*/
 	return EXIT_SUCCESS;
 }

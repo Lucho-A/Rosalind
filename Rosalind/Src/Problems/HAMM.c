@@ -1,12 +1,11 @@
 /*
-	Problem XXX: ""
+	Problem HAMM: "Counting Point Mutations"
 
 	Lucho-D
 	25 may. 2022-15:32:00
 */
 
 #include "libRosalind.h"
-#define N 
 
 void HAMM(void){
 	time_t tInit=clock();
