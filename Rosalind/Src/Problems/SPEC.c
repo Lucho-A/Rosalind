@@ -6,7 +6,7 @@
  */
 
 #include "libRosalind.h"
-#define N 101
+#define MAX_LEN 101
 #define PREC 0.001
 
 void SPEC(void){
@@ -20,10 +20,10 @@ void SPEC(void){
 	double alphabetWeights[20]={71.03711,103.00919,115.02694,129.04259,147.06841,57.02146,137.05891,113.08406,128.09496,
 								113.08406,131.04049,114.04293,97.05276,128.05858,156.10111,87.03203,101.04768,99.06841,
 								186.07931,163.06333};
-	char protein[N]="", aux[N]="\0";
-	double l[N]={0.0};
+	char protein[MAX_LEN]="", aux[MAX_LEN]="\0";
+	double l[MAX_LEN]={0.0};
 	int index=0, contN=0;
-	while(fgets(aux,N,f)){
+	while(fgets(aux,MAX_LEN,f)){
 		l[contN]=strtod(aux,NULL);
 		contN++;
 	}

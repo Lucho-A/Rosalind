@@ -30,6 +30,7 @@ int main(void) {
 	PERM();
 	KMP();
 	SPEC();
+	SPLC();
 	*/
 	return EXIT_SUCCESS;
 }

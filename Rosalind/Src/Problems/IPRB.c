@@ -6,7 +6,7 @@
  */
 
 #include "libRosalind.h"
-#define N 100000000.0
+#define MAX_LEN 100000000.0
 
 void IPRB(void){
 	time_t tInit=clock();
@@ -21,7 +21,7 @@ void IPRB(void){
 	long int r[2]={0},selectionOk=FALSE;
 	char kF[2]="YY",mF[2]="Yy",nF[2]="yy",newInd[2]="xx";
 	double dominantPhenotype=0.0;
-	for(long int i=0;i<N;i++){
+	for(long int i=0;i<MAX_LEN;i++){
 		selectionOk=0;
 		while(selectionOk==FALSE){
 			r[0]= rand()%strlen(pobTotal);
@@ -47,7 +47,7 @@ void IPRB(void){
 	}
 	time_t tEnd=clock();
 	printf("\n\nProblem IPRB: \n\n");
-	printf("%.5f",(double)dominantPhenotype/N);
+	printf("%.5f",(double)dominantPhenotype/MAX_LEN);
 	printf("\n\nElapsed Time: %.3f secs.\n\n", (double) (tEnd-tInit)/CLOCKS_PER_SEC);
 	return;
 }

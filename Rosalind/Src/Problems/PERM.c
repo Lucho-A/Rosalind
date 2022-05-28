@@ -6,7 +6,7 @@
  */
 
 #include "libRosalind.h"
-#define N 7
+#define MAX_LEN 7
 
 void print_permutation(int *a, int n){
     for (int i=0;i<n;i++) printf("%d ",a[i]);
@@ -32,13 +32,13 @@ void heap_permutation(int *a,int size, int n){
 
 void PERM(void){
 	time_t tInit=clock();
-	int vPermut[N]={0};
-	for(int i=0;i<N;i++) vPermut[i]=i+1;
+	int vPermut[MAX_LEN]={0};
+	for(int i=0;i<MAX_LEN;i++) vPermut[i]=i+1;
 	int totalPermut=1;
-	for(int i=2;i<=N;i++) totalPermut*=i;
+	for(int i=2;i<=MAX_LEN;i++) totalPermut*=i;
 	printf("\n\nProblem PERM: \n\n");
 	printf("%d\n",totalPermut);
-	heap_permutation(vPermut,N,N);
+	heap_permutation(vPermut,MAX_LEN,MAX_LEN);
 	time_t tEnd=clock();
 	printf("\n\nElapsed Time: %.3f\n\n", (double) (tEnd-tInit)/CLOCKS_PER_SEC);
 	return;
