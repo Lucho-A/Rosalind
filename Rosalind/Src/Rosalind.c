@@ -29,5 +29,6 @@ int main(void) {
 	HAMM();
 	PERM();
 	*/
+	KMP();
 	return EXIT_SUCCESS;
 }
