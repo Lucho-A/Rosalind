@@ -28,7 +28,8 @@ int main(void) {
 	FIB();
 	HAMM();
 	PERM();
-	*/
 	KMP();
+	SPEC();
+	*/
 	return EXIT_SUCCESS;
 }
