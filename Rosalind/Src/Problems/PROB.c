@@ -6,14 +6,14 @@
  */
 
 #include "libRosalind.h"
-#define MAX_LEN 16
+#define LEN 16
 
 void PROB(void){
 	time_t tInit=clock();
 	char *s="GGCCATCCCGGGATCCCATTATTGCGACTGGAGCCGCGAGCTGCACGCGGGTGGCGCTAGGGCACATTGCTTTCTAACATTCAAGCAGGTGTCTAT";
-	double a[MAX_LEN]={0.063,0.115,0.217,0.239,0.323,0.355,0.422,0.454,0.518,0.584,0.620,0.691,0.749,0.779,0.864,0.891};
-	double b[MAX_LEN]={0.0};
-	for(int i=0;i<MAX_LEN;i++){
+	double a[LEN]={0.063,0.115,0.217,0.239,0.323,0.355,0.422,0.454,0.518,0.584,0.620,0.691,0.749,0.779,0.864,0.891};
+	double b[LEN]={0.0};
+	for(int i=0;i<LEN;i++){
 		double pCG=a[i]/2.0;
 		double pTA=(1.0-pCG*2)/2.0;
 		for(int j=0;j<strlen(s);j++){
@@ -26,7 +26,7 @@ void PROB(void){
 	}
 	time_t tEnd=clock();
 	printf("\n\nProblem PROB: \n\n");
-	for(int i=0;i<MAX_LEN;i++) printf("%.3f ", b[i]);
+	for(int i=0;i<LEN;i++) printf("%.3f ", b[i]);
 	printf("\n\nElapsed Time: %.6f\n\n", (double) (tEnd-tInit)/CLOCKS_PER_SEC);
 	return;
 }

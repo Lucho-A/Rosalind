@@ -6,67 +6,6 @@
  */
 
 #include "libRosalind.h"
-#define MAX_LEN 1001
-#define RNA_CODONS 64
-
-void DNA_to_mRNA(char *DNA, char introns[][MAX_LEN], char *mRNA){
-	int cont=0,indFound=-1;
-	while(strcmp(introns[cont],"")!=0){
-		for(int i=0;i<strlen(DNA)-1;i++){
-			indFound=i;
-			for(int j=0;j<strlen(introns[cont]);j++){
-				if(DNA[i+j]!=introns[cont][j]){
-					indFound=-1;
-					break;
-				}
-			}
-			if(indFound!=-1){
-				for(int k=indFound;k<indFound+strlen(introns[cont]);k++) DNA[k]=' ';
-			}
-		}
-		cont++;
-	}
-	cont=0;
-	for(int i=0;i<strlen(DNA);i++){
-		if(DNA[i]!=' '){
-			mRNA[cont]=(DNA[i]!='T')?(DNA[i]):('U');
-			cont++;
-		}
-	}
-}
-
-void mRNA_to_protein(char *mRNA, char *protein){
-	char rnaCodons[RNA_CODONS][4]= {"UUUF","CUUL","AUUI","GUUV",
-			"UUCF","CUCL","AUCI","GUCV",
-			"UUAL","CUAL","AUAI","GUAV",
-			"UUGL","CUGL","AUGM","GUGV",
-			"UCUS","CCUP","ACUT","GCUA",
-			"UCCS","CCCP","ACCT","GCCA",
-			"UCAS","CCAP","ACAT","GCAA",
-			"UCGS","CCGP","ACGT","GCGA",
-			"UAUY","CAUH","AAUN","GAUD",
-			"UACY","CACH","AACN","GACD",
-			"UAA/","CAAQ","AAAK","GAAE",
-			"UAG/","CAGQ","AAGK","GAGE",
-			"UGUC","CGUR","AGUS","GGUG",
-			"UGCC","CGCR","AGCS","GGCG",
-			"UGA/","CGAR","AGAR","GGAG",
-			"UGGW","CGGR","AGGR","GGGG"};
-	int contInd=0, stop=0;
-	for(int i=0;stop==0;i+=3,contInd++){
-		for(int j=0;j<RNA_CODONS;j++){
-			if(mRNA[i]==rnaCodons[j][0] && mRNA[i+1]==rnaCodons[j][1] && mRNA[i+2]==rnaCodons[j][2]){
-				if(rnaCodons[j][3]=='/'){
-					protein[contInd]='\0';
-					stop=1;
-					break;
-				}
-				protein[contInd]=rnaCodons[j][3];
-				break;
-			}
-		}
-	}
-}
 
 void SPLC(void){
 	time_t tInit=clock();

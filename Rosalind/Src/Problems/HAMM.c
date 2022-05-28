@@ -9,12 +9,9 @@
 
 void HAMM(void){
 	time_t tInit=clock();
-	char *s1="GAGCCTACTAACGGGAT";
-	char *s2="CATCGTAATGACGGCCT";
-	int hammingDistance=0;
-	for(int i=0;i<strlen(s1);i++){
-		if(s1[i]!=s2[i]) hammingDistance++;
-	}
+	char *s="GAGCCTACTAACGGGAT";
+	char *t="CATCGTAATGACGGCCT";
+	int hammingDistance=hamming_distance(s, t);
 	time_t tEnd=clock();
 	printf("\n\nProblem HAMM: \n\n");
 	printf("%d",hammingDistance);

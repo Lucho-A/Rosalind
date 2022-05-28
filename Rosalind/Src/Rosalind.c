@@ -31,6 +31,7 @@ int main(void) {
 	KMP();
 	SPEC();
 	SPLC();
+	TRAN();
 	*/
 	return EXIT_SUCCESS;
 }

@@ -6,7 +6,7 @@
  */
 
 #include "libRosalind.h"
-#define MAX_LEN 10000
+#define LEN 10000
 #define A 0
 #define C 1
 #define G 2
@@ -14,7 +14,7 @@
 
 void INI(void){
 	time_t tInit=clock();
-	char s[MAX_LEN]="AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC";
+	char s[LEN]="AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC";
 	int result[4]={0};
 	for(int i=0;s[i]!='\0';i++){
 		switch(s[i]){
