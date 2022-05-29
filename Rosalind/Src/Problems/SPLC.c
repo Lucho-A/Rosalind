@@ -6,6 +6,7 @@
  */
 
 #include "libRosalind.h"
+#define DNA_LEN 1001
 
 void SPLC(void){
 	time_t tInit=clock();
@@ -14,10 +15,9 @@ void SPLC(void){
 		perror("WTFFFF??? hhahah");
 		exit(EXIT_FAILURE);
 	}
-	char DNA[MAX_LEN]={'\0'},aux[MAX_LEN]={'\0'};
-	char introns[MAX_LEN][MAX_LEN]={{'\0'}};
+	char DNA[DNA_LEN ]={'\0'},aux[DNA_LEN]={'\0'}, introns[DNA_LEN][MAX_LEN]={{'\0'}};
 	int cont=0, indDNA=0, indIntrons=0;
-	while(fgets(aux,MAX_LEN,f)){
+	while(fgets(aux,DNA_LEN,f)){
 		if(aux[0]=='>'){
 			cont++;
 			continue;
@@ -30,7 +30,7 @@ void SPLC(void){
 		}
 	}
 	fclose(f);
-	char mRNA[MAX_LEN]={'\0'};
+	char mRNA[DNA_LEN]={'\0'};
 	DNA_to_mRNA(DNA,introns,mRNA);
 	char *protein=(char *) malloc(strlen(mRNA)/3 * sizeof(char));
 	for(int i=0;i<strlen(mRNA)/3;i++) protein[i]='\0';

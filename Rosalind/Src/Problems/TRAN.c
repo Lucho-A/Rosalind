@@ -6,6 +6,7 @@
 */
 
 #include "libRosalind.h"
+#define LEN 1001
 
 void TRAN(void){
 	time_t tInit=clock();
@@ -14,9 +15,9 @@ void TRAN(void){
 		perror("File error\n");
 		exit(EXIT_FAILURE);
 	}
-	char s[2][MAX_LEN]={{'\0'}}, aux[MAX_LEN]={'\0'};
+	char s[2][LEN]={{'\0'}}, aux[LEN]={'\0'};
 	int contS=-1, ind=0;
-	while(fgets(aux,MAX_LEN,f)){
+	while(fgets(aux,LEN,f)){
 		if(aux[0]=='>'){
 			contS++;
 			ind=0;

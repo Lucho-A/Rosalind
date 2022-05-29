@@ -4,7 +4,7 @@
  Author      : L.
  Version     :
  Copyright   : 
- Description : Rosalind Project
+ Description : Rosalind Project - main()
  ============================================================================
  */
 
@@ -32,6 +32,7 @@ int main(void) {
 	SPEC();
 	SPLC();
 	TRAN();
+	ORF();
 	*/
 	return EXIT_SUCCESS;
 }

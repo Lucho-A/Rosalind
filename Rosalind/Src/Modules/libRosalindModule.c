@@ -6,9 +6,10 @@
  */
 
 #include "libRosalind.h"
+#define CODONS 64
 
 //Variable definition
-char rnaCodons[RNA_CODONS][4]= {
+char codons[CODONS][5]= {
 		"UUUF","CUUL","AUUI","GUUV",
 		"UUCF","CUCL","AUCI","GUCV",
 		"UUAL","CUAL","AUAI","GUAV",
@@ -25,6 +26,90 @@ char rnaCodons[RNA_CODONS][4]= {
 		"UGCC","CGCR","AGCS","GGCG",
 		"UGA/","CGAR","AGAR","GGAG",
 		"UGGW","CGGR","AGGR","GGGG"};
+
+bool is_stop_codon(char *codon){
+	char resp='\0';
+	for(int i=0;i<3;i++) codon[i]=(codon[i]=='T')?('U'):(codon[i]);
+	for(int i=0;i<CODONS;i++){
+		if(codons[i][0]==codon[0] && codons[i][1]==codon[1] && codons[i][2]==codon[2]){
+			resp=codons[i][3];
+			break;
+		}
+	}
+	if(resp=='/') return TRUE;
+	return FALSE;
+}
+
+bool is_start_codon(char *codon){
+	if(codon[0]=='A' && (codon[1]=='U' || codon[1]=='T') && codon[2]=='G') return TRUE;
+	return FALSE;
+}
+
+void reverse_DNA(char DNA_RNA[][MAX_LEN]){
+	for(int i=0;i<strlen(DNA_RNA[0]);i++){
+		switch(DNA_RNA[0][i]){
+		case 'A':
+			DNA_RNA[1][i]='T';
+			break;
+		case 'T':
+			DNA_RNA[1][i]='A';
+			break;
+		case 'G':
+			DNA_RNA[1][i]='C';
+			break;
+		case 'C':
+			DNA_RNA[1][i]='G';
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void generate_ORF(char DNA_RNA[][MAX_LEN], char orfs[][MAX_LEN]){
+	char codon[4]="", DNA_aux[MAX_LEN]={'\0'};;
+	int contR=0, lastPos=0, DNAlen=0;
+	for(int k=0;k<2;k++){
+		strcpy(DNA_aux,DNA_RNA[k]);
+		if(k==1){
+			DNAlen=strlen(DNA_aux);
+			for(int i=DNAlen-1;i>(DNAlen-1)/2;i--){
+				char aux=DNA_aux[DNAlen-i];
+				DNA_aux[DNAlen-i]=DNA_aux[i];
+				DNA_aux[i]=aux;
+			}
+		}
+		for(int i=0;i<strlen(DNA_aux);i++){
+			codon[0]=DNA_aux[i];
+			codon[1]=DNA_aux[i+1];
+			codon[2]=DNA_aux[i+2];
+			if(is_start_codon(codon)){
+				lastPos=i+1;
+				for(int j=i;is_stop_codon(codon)==FALSE && j<strlen(DNA_aux);){
+					strcat(orfs[contR],codon);
+					j+=3;
+					codon[0]=DNA_aux[j];
+					codon[1]=DNA_aux[j+1];
+					codon[2]=DNA_aux[j+2];
+				}
+				if(is_stop_codon(codon)==FALSE) {
+					strcpy(orfs[contR],"");
+					contR--;
+				}else{
+					for(int i=0;i<contR;i++){
+						if(strcmp(orfs[i],orfs[contR])==0){
+							strcpy(orfs[contR],"");
+							contR--;
+						}
+					}
+				}
+				i=lastPos;
+				contR++;
+			}
+		}
+	}
+	return;
+}
 
 //Heap Permutation
 void print_permutation(int *a, int n){
@@ -60,6 +145,7 @@ double fibonacci(lu n, lu incr){
 	return fibos[0];
 }
 
+//Find Motif
 int find_motif(char *s, char *t, int *result){
 	int lenS=strlen(s), lenT=strlen(t), cont=0;
 	bool find=FALSE;
@@ -83,6 +169,7 @@ int find_motif(char *s, char *t, int *result){
 	return cont;
 }
 
+//Find Failure Array
 void find_failure_array(char *s, int *failureArray){
 	int lenS=strlen(s)-1,pos=0, cont=0, ind=1;
 	for(int i=1;i<lenS;i++){
@@ -114,6 +201,7 @@ void find_failure_array(char *s, int *failureArray){
 	}
 }
 
+//Hamming Distance
 int hamming_distance(char *s, char *t){
 	int hammingDistance=0;
 	for(int i=0;i<strlen(s);i++){
@@ -122,6 +210,7 @@ int hamming_distance(char *s, char *t){
 	return hammingDistance;
 }
 
+//Transition Transversion Ratio
 double transition_transversion_ratio(char *s1, char *s2){
 	double transitions=0.0, transversion=0.0, hammingDistance=0.0;
 	for(int i=0;i<strlen(s1);i++){
@@ -135,6 +224,7 @@ double transition_transversion_ratio(char *s1, char *s2){
 	return transitions/transversion;
 }
 
+//DNA to mRNA
 void DNA_to_mRNA(char *DNA, char introns[][MAX_LEN], char *mRNA){
 	int cont=0,indFound=-1;
 	while(strcmp(introns[cont],"")!=0){
@@ -161,17 +251,19 @@ void DNA_to_mRNA(char *DNA, char introns[][MAX_LEN], char *mRNA){
 	}
 }
 
+//mRNA to Protein
 void mRNA_to_protein(char *mRNA, char *protein){
 	int contInd=0, stop=0;
-	for(int i=0;stop==0;i+=3,contInd++){
-		for(int j=0;j<RNA_CODONS;j++){
-			if(mRNA[i]==rnaCodons[j][0] && mRNA[i+1]==rnaCodons[j][1] && mRNA[i+2]==rnaCodons[j][2]){
-				if(rnaCodons[j][3]=='/'){
+	for(int i=0;stop==0 && i<strlen(mRNA);i+=3,contInd++){
+		for(int j=0;j<CODONS;j++){
+			if(mRNA[i]==codons[j][0] && mRNA[i+1]==codons[j][1] && mRNA[i+2]==codons[j][2]){
+				//printf("%s\n",codons[j]);
+				if(codons[j][3]=='/'){
 					protein[contInd]='\0';
 					stop=1;
 					break;
 				}
-				protein[contInd]=rnaCodons[j][3];
+				protein[contInd]=codons[j][3];
 				break;
 			}
 		}

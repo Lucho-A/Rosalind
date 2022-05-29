@@ -17,8 +17,8 @@
     #define FALSE 0
     #define TRUE 1
 	#define PI 3.14159265358979323846264338327950288419716939937510
-	#define RNA_CODONS 64
-	#define MAX_LEN 2048
+	#define MAX_LEN 1024
+	#define MAX_ROWS 1024
 
 	//typedef
 	typedef int bool;
@@ -27,6 +27,10 @@
     typedef long long unsigned int llu;
 
     //libRosalindModule.c
+    void reverse_DNA(char DNA_RNA[][MAX_LEN]);
+    void generate_ORF(char DNA_RNA[][MAX_LEN], char orfs[][MAX_LEN]);
+    bool is_start_codon(char *codon);
+    bool is_stop_codon(char *codon);
     void heap_permutation(int *a,int size, int n);
     void swap(int *a,int i,int size);
     void print_permutation(int *a, int n);
