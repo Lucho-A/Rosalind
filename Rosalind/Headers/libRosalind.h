@@ -14,6 +14,7 @@
     #include <string.h>
 
 	//defines
+	#define NS_PER_SECOND 1000000000.0
     #define FALSE 0
     #define TRUE 1
 	#define PI 3.14159265358979323846264338327950288419716939937510
@@ -27,6 +28,7 @@
     typedef long long unsigned int llu;
 
     //libRosalindModule.c
+    void find_first_subsequence(char DNA[MAX_LEN], char ssDNA[MAX_LEN], int *posFound);
     void find_DNA_reverse_palindromes(char DNA[][MAX_LEN],int reversePalindromePositions[MAX_ROWS][2]);
     void reverse_DNA(char DNA_RNA[][MAX_LEN]);
     void generate_ORF(char DNA_RNA[][MAX_LEN], char orfs[][MAX_LEN]);

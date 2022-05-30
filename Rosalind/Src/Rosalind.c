@@ -33,7 +33,8 @@ int main(void) {
 	SPLC();
 	TRAN();
 	ORF();
-	*/
 	REVP();
+	*/
+	SSEQ();
 	return EXIT_SUCCESS;
 }

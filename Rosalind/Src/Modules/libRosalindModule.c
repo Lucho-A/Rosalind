@@ -6,6 +6,7 @@
  */
 
 #include "libRosalind.h"
+
 #define CODONS 64
 
 //Variable definition
@@ -26,6 +27,20 @@ char codons[CODONS][5]= {
 		"UGCC","CGCR","AGCS","GGCG",
 		"UGA/","CGAR","AGAR","GGAG",
 		"UGGW","CGGR","AGGR","GGGG"};
+
+void find_first_subsequence(char DNA[MAX_LEN], char ssDNA[MAX_LEN], int *posFound){
+	int lenDNA=strlen(DNA), lenssDNA=strlen(ssDNA), ind=0;
+	for(int i=0;i<lenssDNA;i++){
+		for(int j=((ind-1)==-1)?(0):(posFound[ind-1]);j<lenDNA;j++){
+			if(DNA[j]==ssDNA[i]){
+				posFound[ind]=j+1;
+				ind++;
+				break;
+			}
+		}
+	}
+	return;
+}
 
 void find_DNA_reverse_palindromes(char DNA[][MAX_LEN],int reversePalindromePositions[MAX_ROWS][2]){
 	int dnaLen=strlen(DNA[0])-1, cont=0, contL=0,contR=0;
