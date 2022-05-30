@@ -34,5 +34,6 @@ int main(void) {
 	TRAN();
 	ORF();
 	*/
+	REVP();
 	return EXIT_SUCCESS;
 }

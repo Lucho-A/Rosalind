@@ -27,6 +27,7 @@
     typedef long long unsigned int llu;
 
     //libRosalindModule.c
+    void find_DNA_reverse_palindromes(char DNA[][MAX_LEN],int reversePalindromePositions[MAX_ROWS][2]);
     void reverse_DNA(char DNA_RNA[][MAX_LEN]);
     void generate_ORF(char DNA_RNA[][MAX_LEN], char orfs[][MAX_LEN]);
     bool is_start_codon(char *codon);

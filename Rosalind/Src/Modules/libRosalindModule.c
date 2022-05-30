@@ -27,6 +27,36 @@ char codons[CODONS][5]= {
 		"UGA/","CGAR","AGAR","GGAG",
 		"UGGW","CGGR","AGGR","GGGG"};
 
+void find_DNA_reverse_palindromes(char DNA[][MAX_LEN],int reversePalindromePositions[MAX_ROWS][2]){
+	int dnaLen=strlen(DNA[0])-1, cont=0, contL=0,contR=0;
+	bool palindromeFound=TRUE;
+	for(int i=0;i<dnaLen;i++){
+		contL=i;
+		contR=dnaLen;
+		for(int k=dnaLen;k>i;k--){
+			palindromeFound=TRUE;
+			contR=k;
+			contL=i;
+			while(palindromeFound==TRUE && contR>i){
+				if(DNA[0][contL]!=DNA[1][contR]){
+					palindromeFound=FALSE;
+				}else{
+					contL++;
+					contR--;
+				}
+			}
+			if(palindromeFound==TRUE){
+				int palindromeLen=k-i+1;
+				if(palindromeLen>=4 && palindromeLen<=12){
+					reversePalindromePositions[cont][0]=i+1;
+					reversePalindromePositions[cont][1]=palindromeLen;
+					cont++;
+				}
+			}
+		}
+	}
+}
+
 bool is_stop_codon(char *codon){
 	char resp='\0';
 	for(int i=0;i<3;i++) codon[i]=(codon[i]=='T')?('U'):(codon[i]);
