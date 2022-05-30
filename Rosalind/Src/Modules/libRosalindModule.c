@@ -28,6 +28,7 @@ char codons[CODONS][5]= {
 		"UGA/","CGAR","AGAR","GGAG",
 		"UGGW","CGGR","AGGR","GGGG"};
 
+//Find first subsequence in DNA
 void find_first_subsequence(char DNA[MAX_LEN], char ssDNA[MAX_LEN], int *posFound){
 	int lenDNA=strlen(DNA), lenssDNA=strlen(ssDNA), ind=0;
 	for(int i=0;i<lenssDNA;i++){
@@ -42,6 +43,7 @@ void find_first_subsequence(char DNA[MAX_LEN], char ssDNA[MAX_LEN], int *posFoun
 	return;
 }
 
+//Find capicuas jjaja
 void find_DNA_reverse_palindromes(char DNA[][MAX_LEN],int reversePalindromePositions[MAX_ROWS][2]){
 	int dnaLen=strlen(DNA[0])-1, cont=0, contL=0,contR=0;
 	bool palindromeFound=TRUE;
@@ -72,6 +74,7 @@ void find_DNA_reverse_palindromes(char DNA[][MAX_LEN],int reversePalindromePosit
 	}
 }
 
+//Is stop codon???
 bool is_stop_codon(char *codon){
 	char resp='\0';
 	for(int i=0;i<3;i++) codon[i]=(codon[i]=='T')?('U'):(codon[i]);
@@ -90,6 +93,7 @@ bool is_start_codon(char *codon){
 	return FALSE;
 }
 
+//Reverse DNA
 void reverse_DNA(char DNA_RNA[][MAX_LEN]){
 	for(int i=0;i<strlen(DNA_RNA[0]);i++){
 		switch(DNA_RNA[0][i]){
@@ -111,6 +115,7 @@ void reverse_DNA(char DNA_RNA[][MAX_LEN]){
 	}
 }
 
+//Generate ORF's
 void generate_ORF(char DNA_RNA[][MAX_LEN], char orfs[][MAX_LEN]){
 	char codon[4]="", DNA_aux[MAX_LEN]={'\0'};;
 	int contR=0, lastPos=0, DNAlen=0;

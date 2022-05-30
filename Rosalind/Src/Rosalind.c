@@ -34,7 +34,7 @@ int main(void) {
 	TRAN();
 	ORF();
 	REVP();
-	*/
 	SSEQ();
+	*/
 	return EXIT_SUCCESS;
 }
