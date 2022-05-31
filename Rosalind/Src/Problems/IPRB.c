@@ -9,7 +9,6 @@
 #define LEN 100000000.0
 
 void IPRB(void){
-	time_t tInit=clock();
 	srand(time(NULL));
 	int pobK=21,pobM=28,pobN=27;
 	char *pobTotal= (char *) malloc((pobK+pobM+pobN)*sizeof(char));
@@ -45,9 +44,7 @@ void IPRB(void){
 		}
 		if(newInd[0]=='Y'||newInd[1]=='Y') dominantPhenotype++;
 	}
-	time_t tEnd=clock();
 	printf("\n\nProblem IPRB: \n\n");
 	printf("%.5f",(double)dominantPhenotype/LEN);
-	printf("\n\nElapsed Time: %.3f secs.\n\n", (double) (tEnd-tInit)/CLOCKS_PER_SEC);
 	return;
 }

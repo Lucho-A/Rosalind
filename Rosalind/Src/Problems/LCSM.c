@@ -10,7 +10,6 @@
 #define MAX_LINE_LEN 1000
 
 void LCSM(void){
-	time_t tInit=clock();
 	FILE *fp = fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\LCSM\\rosalind_lcsm.txt", "r");
 	if(fp==NULL){
 		printf("File not found\n");
@@ -59,9 +58,7 @@ void LCSM(void){
 			if(strFound==TRUE && strlen(sAux)>strlen(maxStringFound)) strcpy(maxStringFound,sAux);
 		}
 	}
-	time_t tEnd=clock();
 	printf("\n\nProblem LCSM: \n\n");
 	printf("%s",maxStringFound);
-	printf("\n\nElapsed Time: %.6f\n\n", (double) (tEnd-tInit)/CLOCKS_PER_SEC);
 	return;
 }

@@ -9,7 +9,6 @@
 #define LEN 1001
 
 void TRAN(void){
-	time_t tInit=clock();
 	FILE *f=fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\TRAN\\rosalind_tran.txt","r");
 	if(f==NULL){
 		perror("File error\n");
@@ -27,9 +26,7 @@ void TRAN(void){
 	}
 	fclose(f);
 	double ttr=transition_transversion_ratio(s[0], s[1]);
-	time_t tEnd=clock();
 	printf("\n\nProblem TRAN: \n\n");
 	printf("%.11f",ttr);
-	printf("\n\nElapsed Time: %.3f\n\n", (double) (tEnd-tInit)/CLOCKS_PER_SEC);
 	return;
 }

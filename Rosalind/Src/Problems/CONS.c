@@ -15,7 +15,6 @@
 #define T 3
 
 void CONS(void){
-	time_t tInit=clock();
 	FILE *fp = fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\CONS\\rosalind_cons3.txt", "r");
 	if(fp==NULL){
 		printf("File not found\n");
@@ -98,7 +97,6 @@ void CONS(void){
 			}
 		}
 	}
-	time_t tEnd=clock();
 	printf("Problem CONS - Result:\n\n");
 	for(int i=0;i<len;i++) printf("%c", consensus[i]);
 	printf("\nA: ");
@@ -109,6 +107,5 @@ void CONS(void){
 	for(int i=0;i<len;i++) printf("%d ", profile[G][i]);
 	printf("\nT: ");
 	for(int i=0;i<len;i++) printf("%d ", profile[T][i]);
-	printf("\n\nElapsed Time: %.6f\n", (double) (tEnd-tInit)/CLOCKS_PER_SEC);
 	return;
 }

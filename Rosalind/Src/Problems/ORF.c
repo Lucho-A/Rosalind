@@ -8,7 +8,6 @@
 #include "libRosalind.h"
 
 void ORF(void){
-	time_t tInit=clock();
 	FILE *f=fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\ORF\\rosalind_orf.txt","r");
 	if(f==NULL){
 		perror("File error\n");
@@ -22,13 +21,11 @@ void ORF(void){
 	}
 	reverse_DNA(DNA);
 	generate_ORF(DNA, orfs);
-	time_t tEnd=clock();
 	printf("\n\nProblem ORF: \n");
 	for(int i=0;strcmp(orfs[i],"")!=0;i++){
 		char protein[MAX_LEN]="";
 		mRNA_to_protein(orfs[i], protein);
 		printf("\n%s",protein);
 	}
-	printf("\n\nElapsed Time: %.3f\n\n", (double) (tEnd-tInit)/CLOCKS_PER_SEC);
 	return;
 }

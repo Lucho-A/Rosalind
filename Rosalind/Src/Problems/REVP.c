@@ -8,7 +8,6 @@
 #include "libRosalind.h"
 
 void REVP(void){
-	time_t tInit=clock();
 	char DNA[2][MAX_LEN]={{'\0'}}, aux[MAX_LEN]={'\0'};
 	FILE *f=fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\REVP\\rosalind_revp.txt","r");
 	if(f==NULL){
@@ -27,7 +26,6 @@ void REVP(void){
 	find_DNA_reverse_palindromes(DNA, reversePalindromePositions);
 	for(int i=0;reversePalindromePositions[i][0]!=0;i++) fprintf(f,"%d %d\n",reversePalindromePositions[i][0],reversePalindromePositions[i][1]);
 	fclose(f);
-	time_t tEnd=clock();
-	printf("\n\nProblem REVP: Elapsed Time: %.3f\n\n", (double) (tEnd-tInit)/CLOCKS_PER_SEC);
+	printf("\n\nProblem REVP.\n\n");
 	return;
 }

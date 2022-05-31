@@ -9,7 +9,6 @@
 #define DNA_LEN 1001
 
 void SPLC(void){
-	time_t tInit=clock();
 	FILE *f=fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\SPLC\\rosalind_splc.txt","r");
 	if(f==NULL){
 		perror("WTFFFF??? hhahah");
@@ -35,9 +34,7 @@ void SPLC(void){
 	char *protein=(char *) malloc(strlen(mRNA)/3 * sizeof(char));
 	for(int i=0;i<strlen(mRNA)/3;i++) protein[i]='\0';
 	mRNA_to_protein(mRNA,protein);
-	time_t tEnd=clock();
 	printf("\n\nProblem SPLC.c: \n\n");
 	printf("%s",protein);
-	printf("\n\nElapsed Time: %.3f\n\n", (double) (tEnd-tInit)/CLOCKS_PER_SEC);
 	return;
 }

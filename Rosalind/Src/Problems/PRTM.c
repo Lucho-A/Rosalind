@@ -8,7 +8,6 @@
 #include "libRosalind.h"
 
 void PRTM(void){
-	time_t tInit=clock();
 	char alphabet[20]="ACDEFGHIKLMNPQRSTVWY";
 	double alphabetWeights[20]={71.03711,103.00919,115.02694,129.04259,147.06841,57.02146,137.05891,113.08406,128.09496,
 			113.08406,131.04049,114.04293,97.05276,128.05858,156.10111,87.03203,101.04768,99.06841,186.07931,163.06333};
@@ -19,9 +18,7 @@ void PRTM(void){
 			if(protein[i]==alphabet[j]) sum+=alphabetWeights[j];
 		}
 	}
-	time_t tEnd=clock();
 	printf("\n\nProblem PRTM.c: \n\n");
 	printf("%.3f",sum);
-	printf("\n\nElapsed Time: %.6f\n\n", (double) (tEnd-tInit)/CLOCKS_PER_SEC);
 	return;
 }

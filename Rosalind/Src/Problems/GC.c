@@ -9,7 +9,6 @@
 #define MAX_DNA_STRINGS 1000
 
 void GC(void){
-	time_t tInit=clock();
 	FILE *fp;
 	int contLine=0;
 	char line[MAX_DNA_STRINGS][MAX_LINE_LEN]={""};
@@ -45,7 +44,6 @@ void GC(void){
 		strcpy(maxID,id);
 		highestGC=porc;
 	}
-	time_t tEnd=clock();
-	printf("Problem GC - Result: \n\n%s%f. \n\nElapsed Time: %.6f\n",maxID, highestGC *100,(double) (tEnd-tInit)/CLOCKS_PER_SEC);
+	printf("Problem GC - Result: \n\n%s%f.",maxID, highestGC *100);
 	return;
 }

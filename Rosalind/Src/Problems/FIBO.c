@@ -5,12 +5,8 @@
 
 #include "libRosalind.h"
 
-#define LIMIT 25
-
 void FIBO(void){
-    time_t tInit=clock();
-    double resp=fibonacci(22,0);
-    time_t tEnd=clock();
-    printf("Problem FIBO - Result: %.0f. Elapsed Time: %.6f\n",resp,(double) (tEnd-tInit)/CLOCKS_PER_SEC);
+    double resp=fibonacci(6,1,0);
+    printf("Problem FIBO - Result: %.0f.\n",resp);
     return;
 }

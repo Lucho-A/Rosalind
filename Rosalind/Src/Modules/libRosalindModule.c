@@ -185,13 +185,21 @@ void heap_permutation(int *a,int size, int n){
 }
 
 //Fibonacci
-double fibonacci(lu n, lu incr){
-	double fibos[3]={0,1,1};
+double fibonacci(lu n, lu incr, lu decr){
+	long int fibos[3]={0,1,1};
+	int cont=0;
 	for(int i=3;i<=n;i++){
-		fibos[0]=fibos[1]*incr+fibos[2];
+		if(i%(decr+1)==0){
+			cont++;
+			fibos[0]=(fibos[1]*incr+fibos[2]-fibos[1]);
+		}else{
+			fibos[0]=(fibos[1]*incr+fibos[2]);
+		}
 		fibos[1]=fibos[2];
 		fibos[2]=fibos[0];
+		printf("%ld %ld (%d)\n",fibos[1],fibos[2],fibos[0]);
 	}
+	printf("%ld\n\n",fibos[0]);
 	return fibos[0];
 }
 

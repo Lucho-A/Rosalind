@@ -10,7 +10,6 @@
 #define PREC 0.001
 
 void SPEC(void){
-	time_t tInit=clock();
 	FILE *f=fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\SPEC\\rosalind_spec.txt","r");
 	if(f==NULL){
 		perror("WTFFFF??? hhahah");
@@ -40,9 +39,7 @@ void SPEC(void){
 		}
 	}
 	(strlen(protein)==contN-1)?(printf("Lenghts OK")):(printf("Lenghts not OK"));
-	time_t tEnd=clock();
 	printf("\n\nProblem SPEC: \n\n");
 	printf("%s",protein);
-	printf("\n\nElapsed Time: %.3f\n\n", (double) (tEnd-tInit)/CLOCKS_PER_SEC);
 	return;
 }

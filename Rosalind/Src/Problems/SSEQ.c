@@ -8,8 +8,6 @@
 #include "libRosalind.h"
 
 void SSEQ(void){
-	struct timespec tInit, tEnd;
-	clock_gettime(CLOCK_REALTIME,&tInit);
 	char DNA[MAX_LEN]={'\0'}, ssDNA[MAX_LEN]={'\0'}, aux[MAX_LEN]={'\0'};
 	FILE *f=fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\SSEQ\\rosalind_sseq.txt","r");
 	if(f==NULL){
@@ -35,7 +33,6 @@ void SSEQ(void){
 	f=fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\SSEQ\\rosalind_sseq_RESULT.txt","w");
 	for(int i=0;i<strlen(ssDNA);i++) fprintf(f,"%d ", firstPositionFound[i]);
 	fclose(f);
-	clock_gettime(CLOCK_REALTIME,&tEnd);
-	printf("\n\nProblem SSEQ: Elapsed Time: %.6lf\n\n", (double) (tEnd.tv_sec - tInit.tv_sec) + (tEnd.tv_nsec - tInit.tv_nsec) / NS_PER_SECOND);
+	printf("\n\nProblem SSEQ: OK.\n\n");
 	return;
 }

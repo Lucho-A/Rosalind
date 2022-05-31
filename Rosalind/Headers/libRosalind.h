@@ -14,7 +14,6 @@
     #include <string.h>
 
 	//defines
-	#define NS_PER_SECOND 1000000000.0
     #define FALSE 0
     #define TRUE 1
 	#define PI 3.14159265358979323846264338327950288419716939937510
@@ -37,7 +36,7 @@
     void heap_permutation(int *a,int size, int n);
     void swap(int *a,int i,int size);
     void print_permutation(int *a, int n);
-    double fibonacci(lu n, lu incr);
+    double fibonacci(lu n, lu incr, lu decr);
     int find_motif(char *s, char *t, int *result);
     void find_failure_array(char *s, int *failureArray);
     int hamming_distance(char *s, char *t);
