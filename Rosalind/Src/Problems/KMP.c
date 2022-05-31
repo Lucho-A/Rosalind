@@ -5,7 +5,7 @@
 	26 may. 2022-18:34:17
  */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 #define LEN	100000
 
 void KMP(void){

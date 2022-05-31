@@ -5,7 +5,7 @@
 	30 may. 2022-15:04:01
 */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 #define MONTHS_TO_EVAL 9
 #define EXPECTATIOM_RABBITS_LIFE 3
 #define RABBITS_PAIRS_PER_GEN 1

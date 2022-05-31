@@ -5,7 +5,7 @@
 	24 may. 2022-15:27:53
  */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 #define LEN 16
 
 void PROB(void){

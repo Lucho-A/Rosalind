@@ -5,7 +5,7 @@
 	23 may. 2022-22:28:36
  */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 #define LEN 10000
 #define A 0
 #define C 1

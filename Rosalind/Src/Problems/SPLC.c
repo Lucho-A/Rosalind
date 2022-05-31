@@ -5,7 +5,7 @@
 	28 may. 2022-13:45:10
  */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 #define DNA_LEN 1001
 
 void SPLC(void){

@@ -5,7 +5,7 @@
 	28 may. 2022-18:06:49
  */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 
 #define CODONS 64
 

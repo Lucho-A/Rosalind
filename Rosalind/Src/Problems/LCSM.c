@@ -5,7 +5,7 @@
 	24 may. 2022-19:27:20
  */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 #define MAX_DNA_STRINGS 2000
 #define MAX_LINE_LEN 1000
 

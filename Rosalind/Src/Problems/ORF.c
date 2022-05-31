@@ -5,7 +5,7 @@
 	29 may. 2022-00:25:54
  */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 
 void ORF(void){
 	FILE *f=fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\ORF\\rosalind_orf.txt","r");

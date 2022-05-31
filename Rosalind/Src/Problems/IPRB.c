@@ -5,7 +5,7 @@
 	24 may. 2022-12:42:33
  */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 #define LEN 100000000.0
 
 void IPRB(void){

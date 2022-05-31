@@ -5,7 +5,7 @@
 	25 may. 2022-15:47:39
  */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 #define LEN 7
 
 void PERM(void){

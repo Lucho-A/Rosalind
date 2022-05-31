@@ -5,7 +5,7 @@
 	25 may. 2022-15:32:00
 */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 
 void HAMM(void){
 	char *s="GAGCCTACTAACGGGAT";

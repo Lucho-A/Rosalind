@@ -8,7 +8,7 @@
  ============================================================================
  */
 
-#include "Headers/libRosalind.h"
+#include "libRosalind.h"
 #define NS_PER_SECOND 1000000000.0
 
 int main(void) {

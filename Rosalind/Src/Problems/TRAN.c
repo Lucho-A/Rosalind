@@ -5,7 +5,7 @@
 	28 may. 2022-17:22:54
 */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 #define LEN 1001
 
 void TRAN(void){

@@ -5,7 +5,7 @@
 	L
 */
 
-#include "../Headers/libRosalind.h"
+#include "libRosalind.h"
 
 void FIB(void){
 	double resp=fibonacci(5,3,0);
