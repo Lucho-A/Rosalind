@@ -5,7 +5,7 @@
 	24 may. 2022-11:28:08
  */
 
-#include "libRosalind.h"
+#include "../Headers/libRosalind.h"
 
 void PRTM(void){
 	char alphabet[20]="ACDEFGHIKLMNPQRSTVWY";

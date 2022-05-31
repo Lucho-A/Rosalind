@@ -5,7 +5,7 @@
 	27 may. 2022-22:57:00
  */
 
-#include "libRosalind.h"
+#include "../Headers/libRosalind.h"
 #define LEN 101
 #define PREC 0.001
 

@@ -5,7 +5,7 @@
 	29 may. 2022-20:31:12
  */
 
-#include "libRosalind.h"
+#include "../Headers/libRosalind.h"
 
 void REVP(void){
 	char DNA[2][MAX_LEN]={{'\0'}}, aux[MAX_LEN]={'\0'};

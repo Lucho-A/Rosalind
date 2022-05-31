@@ -5,8 +5,8 @@
  *      Author: lucho
  */
 
-#ifndef LIBROSALIND_H_
-#define LIBROSALIND_H_
+#ifndef HEADERS_LIBROSALIND_H_
+#define HEADERS_LIBROSALIND_H_
 	//includes
     #include <stdio.h>
     #include <stdlib.h>
@@ -43,4 +43,4 @@
     double transition_transversion_ratio(char *s1, char *s2);
     void DNA_to_mRNA(char *DNA, char introns[][MAX_LEN], char *mRNA);
     void mRNA_to_protein(char *mRNA, char *protein);
-#endif /* LIBROSALIND_H_ */
+#endif /* HEADERS_LIBROSALIND_H_ */

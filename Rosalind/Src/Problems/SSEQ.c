@@ -5,7 +5,7 @@
 	30 may. 2022-13:02:19
  */
 
-#include "libRosalind.h"
+#include "../Headers/libRosalind.h"
 
 void SSEQ(void){
 	char DNA[MAX_LEN]={'\0'}, ssDNA[MAX_LEN]={'\0'}, aux[MAX_LEN]={'\0'};

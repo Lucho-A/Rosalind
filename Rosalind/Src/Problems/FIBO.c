@@ -3,7 +3,7 @@
 	3 may. 2019
 */
 
-#include "libRosalind.h"
+#include "../Headers/libRosalind.h"
 
 void FIBO(void){
     double resp=fibonacci(6,1,0);
