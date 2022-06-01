@@ -6,13 +6,14 @@
 */
 
 #include "libRosalind.h"
-#define MONTHS_TO_EVAL 9
-#define EXPECTATIOM_RABBITS_LIFE 3
+#define MONTHS_TO_EVAL 88
 #define RABBITS_PAIRS_PER_GEN 1
+#define EXPECTATIOM_RABBITS_LIFE 16
 
 void FIBD(void){
-	long int totalRabbits=fibonacci(MONTHS_TO_EVAL, RABBITS_PAIRS_PER_GEN, EXPECTATIOM_RABBITS_LIFE);
+	char *totalRabbits=NULL;
+	fibonacci(MONTHS_TO_EVAL, RABBITS_PAIRS_PER_GEN, EXPECTATIOM_RABBITS_LIFE, &totalRabbits);
 	printf("\n\nProblem FIBD: \n\n");
-	printf("%ld", totalRabbits);
+	printf("%s\n\n", totalRabbits); 	//1083713730914271201 88-16: OK
 	return;
 }

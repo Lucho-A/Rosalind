@@ -6,7 +6,9 @@
 #include "libRosalind.h"
 
 void FIBO(void){
-    double resp=fibonacci(6,1,0);
-    printf("Problem FIBO - Result: %.0f.\n",resp);
+	char *result=NULL;
+	fibonacci(6,1,0,&result);
+    printf("Problem FIBO: \n\n");
+    printf("%s\n\n",result);
     return;
 }

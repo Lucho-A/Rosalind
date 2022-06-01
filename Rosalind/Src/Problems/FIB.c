@@ -8,7 +8,9 @@
 #include "libRosalind.h"
 
 void FIB(void){
-	double resp=fibonacci(5,3,0);
-    printf("Problem FIB - Result: %.0f.\n", resp);
+	char *result=NULL;
+	fibonacci(33,2,0,&result);
+    printf("Problem FIB:\n\n");
+    printf("%s\n\n", result); //2863311531
 	return;
 }

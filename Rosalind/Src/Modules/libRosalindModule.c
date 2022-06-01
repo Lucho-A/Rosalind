@@ -184,23 +184,96 @@ void heap_permutation(int *a,int size, int n){
 	}
 }
 
-//Fibonacci
-double fibonacci(lu n, lu incr, lu decr){
-	long int fibos[3]={0,1,1};
-	int cont=0;
-	for(int i=3;i<=n;i++){
-		if(i%(decr+1)==0){
-			cont++;
-			fibos[0]=(fibos[1]*incr+fibos[2]-fibos[1]);
-		}else{
-			fibos[0]=(fibos[1]*incr+fibos[2]);
-		}
-		fibos[1]=fibos[2];
-		fibos[2]=fibos[0];
-		printf("%ld %ld (%d)\n",fibos[1],fibos[2],fibos[0]);
+void multiply_numbers(char *n, int m, char *result){
+	char n2[MAX_DIGITS]="";
+	strcpy(n2,n);
+	strcpy(result,n);
+	for(int i=1;i<m;i++){
+		//printf(":%s %s %s\n",n,n2, result);
+		sum_numbers(n, n2, result);
+		strcpy(n2,result);
 	}
-	printf("%ld\n\n",fibos[0]);
-	return fibos[0];
+	return;
+}
+
+void pow_numbers(char *n, int m, char *result){
+	strcpy(result,n);
+	for(int i=1;i<m;i++) sum_numbers(result, result, result);
+	return;
+}
+
+void substract_numbers(char *n1, char *n2, char *result){
+	int lenN1=strlen(n1)-1,lenN2=strlen(n2)-1,carry=0, contInd=0;
+	while(lenN1>=0 || lenN2>=0){
+		int sn1=(lenN1>=0)?(n1[lenN1]-'0'):(0);
+		int sn2=(lenN2>=0)?(n2[lenN2]-'0'):(0);
+		int dif=0;
+		if(sn1-carry<sn2){
+			sn1+=10-carry;
+			carry=1;
+			dif=sn1-sn2;
+		}else{
+			dif=sn1-carry-sn2;
+			carry=0;
+		}
+		(result)[contInd]=dif+'0';
+		contInd++;
+		lenN1--;
+		lenN2--;
+	}
+	for(int i=strlen(result)-1;i>(strlen(result)-1)/2;i--){
+		char aux=(result)[strlen(result)-1-i];
+		(result)[strlen(result)-1-i]=(result)[i];
+		(result)[i]=aux;
+	}
+	return;
+}
+
+void sum_numbers(char *n1, char *n2, char *result){
+	int lenN1=strlen(n1)-1,lenN2=strlen(n2)-1,carry=0, contInd=0;
+	while(lenN1>=0 || lenN2>=0){
+		int sn1=(lenN1>=0)?(n1[lenN1]-'0'):(0);
+		int sn2=(lenN2>=0)?(n2[lenN2]-'0'):(0);
+		int sum=sn1+sn2+carry;
+		carry=sum/10;
+		(result)[contInd]=(sum%10) + '0';
+		contInd++;
+		lenN1--;
+		lenN2--;
+	}
+	if(carry==1)(result)[contInd]='1';
+	for(int i=strlen(result)-1;i>(strlen(result)-1)/2;i--){
+		char aux=(result)[strlen(result)-1-i];
+		(result)[strlen(result)-1-i]=(result)[i];
+		(result)[i]=aux;
+	}
+	return;
+}
+
+//Fibonacci
+void fibonacci(lu n, lu multiplyFactor, lu substractTerm, char **result){
+	char fibos[n][MAX_DIGITS], resultSum[MAX_DIGITS]="0", termF2[MAX_DIGITS]="0";
+	strcpy(fibos[0],"0");
+	strcpy(fibos[1],"1");
+	for(int i=2;i<=n;i++){
+		multiply_numbers(fibos[i-2], multiplyFactor, termF2);
+		if(i<=substractTerm || substractTerm==0){
+			sum_numbers(termF2, fibos[i-1],resultSum);
+			strcpy(fibos[i],resultSum);
+			continue;
+		}
+		if(i==substractTerm+1){
+			substract_numbers(fibos[i-2], "1", termF2);
+			sum_numbers(termF2, fibos[i-1], resultSum);
+			strcpy(fibos[i],resultSum);
+			continue;
+		}
+		substract_numbers(fibos[i-2], fibos[i-substractTerm-1], termF2);
+		sum_numbers(termF2, fibos[i-1], resultSum);;
+		strcpy(fibos[i],resultSum);
+	}
+	*result=fibos[n];
+	return;
 }
 
 //Find Motif
