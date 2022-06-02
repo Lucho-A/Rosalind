@@ -189,7 +189,6 @@ void multiply_numbers(char *n, int m, char *result){
 	strcpy(n2,n);
 	strcpy(result,n);
 	for(int i=1;i<m;i++){
-		//printf(":%s %s %s\n",n,n2, result);
 		sum_numbers(n, n2, result);
 		strcpy(n2,result);
 	}
