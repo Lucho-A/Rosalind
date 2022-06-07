@@ -12,6 +12,7 @@
     #include <stdlib.h>
     #include <time.h>
     #include <string.h>
+	#include <math.h>
 
 	//defines
     #define FALSE 0
@@ -20,6 +21,8 @@
 	#define MAX_LEN 1024
 	#define MAX_ROWS 1024
 	#define MAX_DIGITS 1024
+	#define PRINTF_ENTER (printf("\n"))
+	#define PRINTF_TEST_MSG (printf("\n???\n"))
 
 	//typedef
 	typedef int bool;
