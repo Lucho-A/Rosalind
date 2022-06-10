@@ -24,12 +24,31 @@
 	#define PRINTF_ENTER (printf("\n"))
 	#define PRINTF_TEST_MSG (printf("\nWTF???\n"))
 	#define RESOURCE_PATH  "C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources"
+	#define CODONS 64
 
 	//typedef
 	typedef short int bool;
 	typedef long double ld;
     typedef unsigned long int lu;
     typedef unsigned long long int llu;
+
+    static char codons[CODONS][4]= {
+    		"UUUF","CUUL","AUUI","GUUV",
+    		"UUCF","CUCL","AUCI","GUCV",
+    		"UUAL","CUAL","AUAI","GUAV",
+    		"UUGL","CUGL","AUGM","GUGV",
+    		"UCUS","CCUP","ACUT","GCUA",
+    		"UCCS","CCCP","ACCT","GCCA",
+    		"UCAS","CCAP","ACAT","GCAA",
+    		"UCGS","CCGP","ACGT","GCGA",
+    		"UAUY","CAUH","AAUN","GAUD",
+    		"UACY","CACH","AACN","GACD",
+    		"UAA/","CAAQ","AAAK","GAAE",
+    		"UAG/","CAGQ","AAGK","GAGE",
+    		"UGUC","CGUR","AGUS","GGUG",
+    		"UGCC","CGCR","AGCS","GGCG",
+    		"UGA/","CGAR","AGAR","GGAG",
+    		"UGGW","CGGR","AGGR","GGGG"};
 
     //libRosalindModule.c
     void initStrV(char **p, int size, char c);

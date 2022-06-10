@@ -7,26 +7,7 @@
 
 #include "libRosalind.h"
 
-#define CODONS 64
-
 //Variable definition
-char codons[CODONS][5]= {
-		"UUUF","CUUL","AUUI","GUUV",
-		"UUCF","CUCL","AUCI","GUCV",
-		"UUAL","CUAL","AUAI","GUAV",
-		"UUGL","CUGL","AUGM","GUGV",
-		"UCUS","CCUP","ACUT","GCUA",
-		"UCCS","CCCP","ACCT","GCCA",
-		"UCAS","CCAP","ACAT","GCAA",
-		"UCGS","CCGP","ACGT","GCGA",
-		"UAUY","CAUH","AAUN","GAUD",
-		"UACY","CACH","AACN","GACD",
-		"UAA/","CAAQ","AAAK","GAAE",
-		"UAG/","CAGQ","AAGK","GAGE",
-		"UGUC","CGUR","AGUS","GGUG",
-		"UGCC","CGCR","AGCS","GGCG",
-		"UGA/","CGAR","AGAR","GGAG",
-		"UGGW","CGGR","AGGR","GGGG"};
 
 void initStrV(char **p, int size, char c){
 	*p=(char*)malloc(size*sizeof(char));
