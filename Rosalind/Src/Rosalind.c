@@ -32,6 +32,7 @@ int main(void) {
 	LCSM();
 	LIA();
 	MPRT();
+	MRNA();
 	ORF();
 	PERM();
 	PRTM();
@@ -54,8 +55,7 @@ int main(void) {
 	FIBO();
 	*/
 	//TODO LGIS();
-	//TODO RSTR();
-	MRNA();
+	RSTR();
 	clock_gettime(CLOCK_REALTIME,&tEnd);
 	printf("\n\nElapsed Time: %.3lf secs.\n\n", (double) (tEnd.tv_sec-tInit.tv_sec)+(tEnd.tv_nsec-tInit.tv_nsec)/NS_PER_SECOND);
 	return EXIT_SUCCESS;

@@ -1,14 +1,32 @@
 /*
 	libRosalindModule.c
 
-	Lucho-D
-	28 may. 2022-18:06:49
- */
+	Created on: 28 may. 2022-18:06:49
+	Author: lucho
+*/
 
 #include "libRosalind.h"
 
 //Variable definition
+char codons[CODONS][4]= {
+		"UUUF","CUUL","AUUI","GUUV",
+		"UUCF","CUCL","AUCI","GUCV",
+		"UUAL","CUAL","AUAI","GUAV",
+		"UUGL","CUGL","AUGM","GUGV",
+		"UCUS","CCUP","ACUT","GCUA",
+		"UCCS","CCCP","ACCT","GCCA",
+		"UCAS","CCAP","ACAT","GCAA",
+		"UCGS","CCGP","ACGT","GCGA",
+		"UAUY","CAUH","AAUN","GAUD",
+		"UACY","CACH","AACN","GACD",
+		"UAA/","CAAQ","AAAK","GAAE",
+		"UAG/","CAGQ","AAGK","GAGE",
+		"UGUC","CGUR","AGUS","GGUG",
+		"UGCC","CGCR","AGCS","GGCG",
+		"UGA/","CGAR","AGAR","GGAG",
+		"UGGW","CGGR","AGGR","GGGG"};
 
+//Vector initialization
 void initStrV(char **p, int size, char c){
 	*p=(char*)malloc(size*sizeof(char));
 	memset(*p,c,size*sizeof(char));
@@ -27,6 +45,7 @@ void initDoubleV(double **p, int size, int c){
 	return;
 }
 
+//File managing
 void open_file(char *dir, char *fileName, FILE **f, char *mode){
 	char path[MAX_LEN]="";
 	snprintf(path,MAX_LEN,"%s\\%s\\%s",RESOURCE_PATH,dir,fileName);
@@ -82,6 +101,7 @@ void find_DNA_reverse_palindromes(char DNA[][MAX_LEN],int reversePalindromePosit
 			}
 		}
 	}
+	return;
 }
 
 //Is stop codon???
@@ -123,6 +143,7 @@ void reverse_DNA(char DNA_RNA[][MAX_LEN]){
 			break;
 		}
 	}
+	return;
 }
 
 //Generate ORF's
@@ -190,19 +211,20 @@ void lexicographic_r_permutations(char *orderedSymbols, int r, char **res){
 			}
 		}
 	}
-	return;
 }
 
 //Heap Permutation
 void print_permutation(int *a, int n){
 	for (int i=0;i<n;i++) printf("%d ",a[i]);
 	printf("\n");
+	return;
 }
 
 void swap(int *a,int i,int size){
 	int temp=a[i];
 	a[i]=a[size-1];
 	a[size-1]=temp;
+	return;
 }
 
 void heap_permutation(int *a,int size, int n){
@@ -216,6 +238,7 @@ void heap_permutation(int *a,int size, int n){
 	}
 }
 
+//Big numbers
 void multiply_numbers(char *n, int m, char *result){
 	char n2[MAX_DIGITS]="";
 	strcpy(n2,n);
@@ -361,6 +384,7 @@ void find_failure_array(char *s, int *failureArray){
 			ind++;
 		}
 	}
+	return;
 }
 
 //Hamming Distance
@@ -411,6 +435,7 @@ void DNA_to_mRNA(char *DNA, char introns[][MAX_LEN], char *mRNA){
 			cont++;
 		}
 	}
+	return;
 }
 
 //mRNA to Protein
@@ -429,4 +454,5 @@ void mRNA_to_protein(char *mRNA, char *protein){
 			}
 		}
 	}
+	return;
 }

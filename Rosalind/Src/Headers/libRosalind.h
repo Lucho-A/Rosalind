@@ -1,9 +1,9 @@
 /*
- * libRosalind.h
- *
- *  Created on: 2 may. 2019
- *      Author: lucho
- */
+	libRosalind.h
+
+	Created on: 2 may. 2019
+	Author: lucho
+*/
 
 #ifndef HEADERS_LIBROSALIND_H_
 #define HEADERS_LIBROSALIND_H_
@@ -32,23 +32,8 @@
     typedef unsigned long int lu;
     typedef unsigned long long int llu;
 
-    static char codons[CODONS][4]= {
-    		"UUUF","CUUL","AUUI","GUUV",
-    		"UUCF","CUCL","AUCI","GUCV",
-    		"UUAL","CUAL","AUAI","GUAV",
-    		"UUGL","CUGL","AUGM","GUGV",
-    		"UCUS","CCUP","ACUT","GCUA",
-    		"UCCS","CCCP","ACCT","GCCA",
-    		"UCAS","CCAP","ACAT","GCAA",
-    		"UCGS","CCGP","ACGT","GCGA",
-    		"UAUY","CAUH","AAUN","GAUD",
-    		"UACY","CACH","AACN","GACD",
-    		"UAA/","CAAQ","AAAK","GAAE",
-    		"UAG/","CAGQ","AAGK","GAGE",
-    		"UGUC","CGUR","AGUS","GGUG",
-    		"UGCC","CGCR","AGCS","GGCG",
-    		"UGA/","CGAR","AGAR","GGAG",
-    		"UGGW","CGGR","AGGR","GGGG"};
+    //vars
+    extern char codons[CODONS][4];
 
     //libRosalindModule.c
     void initStrV(char **p, int size, char c);
