@@ -161,6 +161,28 @@ void generate_ORF(char DNA_RNA[][MAX_LEN], char orfs[][MAX_LEN]){
 	return;
 }
 
+// Lexicographic R-Permutations
+void lexicographic_r_permutations(char *orderedSymbols, int r, char **res){
+	int n=strlen(orderedSymbols);
+	int *idx=(int*)malloc(r*sizeof(int));
+	for(int i=0;i<r;i++) idx[i]=0;
+	int idxR=0,c=0;
+	while(TRUE){
+		for(c=0;c<r;c++) res[idxR][c]=orderedSymbols[idx[c]];
+		res[idxR][c]='\0';
+		idxR++;
+		idx[r-1]++;
+		for(int i=r-1;i>=0;i--){
+			if(idx[0]==n) return;
+			if(idx[i]==n){
+				idx[i]=0;
+				idx[i-1]++;
+			}
+		}
+	}
+	return;
+}
+
 //Heap Permutation
 void print_permutation(int *a, int n){
 	for (int i=0;i<n;i++) printf("%d ",a[i]);
