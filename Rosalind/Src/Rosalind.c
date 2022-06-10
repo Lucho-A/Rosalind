@@ -41,6 +41,7 @@ int main(void) {
 	PROB();
 	SSEQ();
 	TRAN();
+	KMER();
 	KMP();
 	SPEC();
 	*/
@@ -54,7 +55,6 @@ int main(void) {
 	*/
 	//TODO LGIS();
 	//TODO RSTR();
-	KMER();
 	clock_gettime(CLOCK_REALTIME,&tEnd);
 	printf("\n\nElapsed Time: %.3lf secs.\n\n", (double) (tEnd.tv_sec-tInit.tv_sec)+(tEnd.tv_nsec-tInit.tv_nsec)/NS_PER_SECOND);
 	return EXIT_SUCCESS;

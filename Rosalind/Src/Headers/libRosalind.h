@@ -22,16 +22,21 @@
 	#define MAX_ROWS 1024
 	#define MAX_DIGITS 1024
 	#define PRINTF_ENTER (printf("\n"))
-	#define PRINTF_TEST_MSG (printf("\n???\n"))
+	#define PRINTF_TEST_MSG (printf("\nWTF???\n"))
+	#define RESOURCE_PATH  "C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources"
 
 	//typedef
-	typedef int bool;
+	typedef short int bool;
 	typedef long double ld;
     typedef unsigned long int lu;
     typedef unsigned long long int llu;
 
     //libRosalindModule.c
-    //void multiply_numbers(char *n, int m, char *result);
+    void initStrV(char **p, int size, char c);
+    void initIntV(int **p, int size, int c);
+    void initDoubleV(double **p, int size, int c);
+    void open_file(char *dir, char *fileName, FILE **f, char *mode);
+    void multiply_numbers(char *n, int m, char *result);
     void pow_numbers(char *n, int m, char *result);
     void substract_numbers(char *n1, char *n2, char *result);
     void sum_numbers(char *n1, char *n2, char *result);

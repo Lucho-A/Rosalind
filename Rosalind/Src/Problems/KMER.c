@@ -13,11 +13,8 @@
 
 void KMER(void){
 	printf("\n\nProblem KMER: ");
-	FILE *f=fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\KMER\\rosalind_kmer2.txt","r");
-	if(f==NULL){
-		perror("File error\n");
-		exit(EXIT_FAILURE);
-	}
+	FILE *f=NULL;
+	open_file("KMER", "rosalind_kmer2.txt", &f, "r");
 	char s[LEN]="", aux[MAX_LEN]="";
 	int idx=0;
 	while(fgets(aux,MAX_LEN,f)){
@@ -28,8 +25,8 @@ void KMER(void){
 	for (int i=0;i<K;i++) kmers[i]=(char *)malloc(R*sizeof(char));
 	char symbs[5]="ACGT";
 	lexicographic_r_permutations(symbs, R, kmers);
-	int *kmersCount=(int *)malloc(K * sizeof(int));
-	for (int i=0;i<K;i++) kmersCount[i]=0;
+	int *kmersCount=NULL;
+	initIntV(&kmersCount, K, 0);
 	int len=strlen(s)-1;
 	for(int i=0;i<K;i++){
 		for(int j=0;j<len-2;j++){
@@ -44,7 +41,7 @@ void KMER(void){
 		}
 	}
 	free(kmers);
-	f=fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\KMER\\KYMER_Result.txt","w");
+	open_file("KMER", "KYMER_Result.txt", &f, "w");
 	for(int i=0;i<K;i++) fprintf(f,"%d ",kmersCount[i]);
 	fclose(f);
 	free(kmersCount);

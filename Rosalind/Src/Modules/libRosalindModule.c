@@ -28,6 +28,35 @@ char codons[CODONS][5]= {
 		"UGA/","CGAR","AGAR","GGAG",
 		"UGGW","CGGR","AGGR","GGGG"};
 
+void initStrV(char **p, int size, char c){
+	*p=(char*)malloc(size*sizeof(char));
+	memset(*p,c,size*sizeof(char));
+	return;
+}
+
+void initIntV(int **p, int size, int c){
+	*p=(int*)malloc(size*sizeof(int));
+	memset(*p,c,size*sizeof(int));
+	return;
+}
+
+void initDoubleV(double **p, int size, int c){
+	*p=(double*)malloc(size*sizeof(double));
+	memset(*p,c,size*sizeof(double));
+	return;
+}
+
+void open_file(char *dir, char *fileName, FILE **f, char *mode){
+	char path[MAX_LEN]="";
+	snprintf(path,MAX_LEN,"%s\\%s\\%s",RESOURCE_PATH,dir,fileName);
+	*f=fopen(path,mode);
+	if(*f==NULL){
+		perror("Error opening file");
+		exit(EXIT_FAILURE);
+	}
+	return;
+}
+
 //Find first subsequence in DNA
 void find_first_subsequence(char DNA[MAX_LEN], char ssDNA[MAX_LEN], int *posFound){
 	int lenDNA=strlen(DNA), lenssDNA=strlen(ssDNA), ind=0;
@@ -164,8 +193,8 @@ void generate_ORF(char DNA_RNA[][MAX_LEN], char orfs[][MAX_LEN]){
 // Lexicographic R-Permutations
 void lexicographic_r_permutations(char *orderedSymbols, int r, char **res){
 	int n=strlen(orderedSymbols);
-	int *idx=(int*)malloc(r*sizeof(int));
-	for(int i=0;i<r;i++) idx[i]=0;
+	int *idx=NULL;
+	initIntV(&idx,r,0);
 	int idxR=0,c=0;
 	while(TRUE){
 		for(c=0;c<r;c++) res[idxR][c]=orderedSymbols[idx[c]];
@@ -409,7 +438,6 @@ void mRNA_to_protein(char *mRNA, char *protein){
 	for(int i=0;stop==0 && i<strlen(mRNA);i+=3,contInd++){
 		for(int j=0;j<CODONS;j++){
 			if(mRNA[i]==codons[j][0] && mRNA[i+1]==codons[j][1] && mRNA[i+2]==codons[j][2]){
-				//printf("%s\n",codons[j]);
 				if(codons[j][3]=='/'){
 					protein[contInd]='\0';
 					stop=1;
