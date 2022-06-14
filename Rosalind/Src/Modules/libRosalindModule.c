@@ -35,7 +35,7 @@ void initStrV(char **p, int size, char c){
 
 void initIntV(int **p, int size, int c){
 	*p=(int*)malloc(size*sizeof(int));
-	memset(*p,c,size*sizeof(int));
+	memset(*p,0,size*sizeof(int));
 	return;
 }
 
@@ -193,19 +193,18 @@ void generate_ORF(char DNA_RNA[][MAX_LEN], char orfs[][MAX_LEN]){
 }
 
 // Lexicographic R-Permutations
-void lexicographic_r_permutations(char *orderedSymbols, int r, char **res){
-	int n=strlen(orderedSymbols);
-	int *idx=NULL;
+int lexicographic_r_permutations(char *symbols, int r, char **res){
+	int n=strlen(symbols),*idx=NULL,idxR=0,c=0,count=0;
 	initIntV(&idx,r,0);
-	int idxR=0,c=0;
 	while(TRUE){
-		for(c=0;c<r;c++) res[idxR][c]=orderedSymbols[idx[c]];
+		for(c=0;c<r;c++) res[idxR][c]=symbols[idx[c]];
+		count++;
 		res[idxR][c]='\0';
 		idxR++;
 		idx[r-1]++;
 		for(int i=r-1;i>=0;i--){
-			if(idx[0]==n) return;
-			if(idx[i]==n){
+			if(idx[0]>=n) return count;
+			if(idx[i]>=n){
 				idx[i]=0;
 				idx[i-1]++;
 			}

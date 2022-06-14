@@ -50,7 +50,7 @@
     void generate_ORF(char DNA_RNA[][MAX_LEN], char orfs[][MAX_LEN]);
     bool is_start_codon(char *codon);
     bool is_stop_codon(char *codon);
-    void lexicographic_r_permutations(char *orderedSymbols, int r, char **res);
+    int lexicographic_r_permutations(char *orderedSymbols, int r, char **res);
     void heap_permutation(int *a,int size, int n);
     void swap(int *a,int i,int size);
     void print_permutation(int *a, int n);

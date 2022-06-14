@@ -27,12 +27,11 @@ void LEXF(void){
 	fgets(auxS,LEN,f);
 	fclose(f);
 	r=auxS[0]-'0';
-	f=fopen("C:\\Users\\Lucho-D\\git\\Rosalind\\Rosalind\\Resources\\LEXF\\LEXF_result.txt","w");
-	if(f==NULL){
-		perror("File error\n");
-		exit(EXIT_FAILURE);
-	}
-	lexicographic_r_permutations(symbols, r, f);
+	char **result=(char **)malloc(idx * sizeof(char*));
+	for (int i=0;i<idx;i++) result[i]=(char *)malloc(idx*sizeof(char));
+	lexicographic_r_permutations(symbols, r, result);
+	open_file("LEXF", "LEXF_result.txt", &f, "w");
+	for(int i=0;i<idx;i++) fprintf(f,"%s ",result[i]);
 	fclose(f);
 	return;
 }
