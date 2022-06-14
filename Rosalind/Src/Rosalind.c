@@ -8,6 +8,7 @@
  ============================================================================
  */
 
+#define _POSIX_C_SOURCE 199309L //clock_gettime()???
 #include "libRosalind.h"
 #define NS_PER_SECOND 1000000000.0
 
